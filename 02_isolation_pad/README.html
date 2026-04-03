@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fira+Mono:wght@400;500&display=swap');
+:root{--bg:#f7f5f0;--white:#ffffff;--ink:#1a1a2e;--muted:#6b7280;--border:#e5e2dc;--yellow:#ffd60a;--orange:#ff6b35;--blue:#2563eb;--green:#16a34a;--purple:#7c3aed;--yellow-light:#fef9c3;--orange-light:#fff1ec;--blue-light:#eff6ff;--green-light:#f0fdf4;--sans:'Nunito',sans-serif;--mono:'Fira Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;width:900px;margin:0 auto}
+.hero{background:var(--white);padding:48px 56px 40px;border-bottom:3px solid var(--yellow)}
+.tag-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.tag-yellow{background:var(--yellow);color:#7a5a00}.tag-blue{background:var(--blue-light);color:var(--blue)}.tag-green{background:var(--green-light);color:var(--green)}.tag-orange{background:var(--orange-light);color:var(--orange)}.tag-purple{background:#f5f3ff;color:var(--purple)}
+h1{font-size:38px;font-weight:900;line-height:1.1;color:var(--ink);margin-bottom:12px;letter-spacing:-1.5px}
+h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:15px;color:var(--muted);max-width:560px;margin-bottom:28px}
+.stat-row{display:flex;border:2px solid var(--border);border-radius:14px;overflow:hidden;width:fit-content;background:var(--bg)}
+.stat{padding:12px 22px;border-right:2px solid var(--border);text-align:center;min-width:100px}.stat:last-child{border-right:none}
+.stat-val{font-size:22px;font-weight:900;color:var(--blue);line-height:1;margin-bottom:4px}
+.stat-key{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.section{padding:40px 56px;background:var(--white);margin-top:12px}
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.section-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.icon-yellow{background:var(--yellow)}.icon-blue{background:var(--blue-light)}.icon-green{background:var(--green-light)}.icon-orange{background:var(--orange-light)}.icon-purple{background:#f5f3ff}
+h2{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.5px}
+h3{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;margin-top:16px}
+p{color:#374151;margin-bottom:12px;font-size:14.5px}
+.callout{border-radius:12px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start}
+.callout-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.callout-blue{background:var(--blue-light);border:1.5px solid #bfdbfe}.callout-yellow{background:var(--yellow-light);border:1.5px solid #fde68a}.callout-green{background:var(--green-light);border:1.5px solid #bbf7d0}.callout-orange{background:var(--orange-light);border:1.5px solid #fed7aa}
+.callout-text{font-size:14px;color:var(--ink)}.callout-text strong{font-weight:700}
+.print-card{background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid var(--yellow);border-radius:16px;padding:24px 28px;margin-bottom:22px}
+.print-card h3{color:#92400e;margin-bottom:6px;font-size:17px;margin-top:0}
+.print-file{font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.06);padding:5px 10px;border-radius:6px;display:inline-block;color:#1e3a8a;margin-bottom:10px}
+.print-note{color:#78350f;font-size:13px;margin:0}
+.settings-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.setting-chip{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:9px 10px;text-align:center}
+.setting-chip .sv{font-size:13px;font-weight:800;color:var(--blue)}.setting-chip .sk{font-size:10px;color:var(--muted);font-weight:600;margin-top:2px}
+.spec-table{width:100%;border-collapse:collapse}
+.spec-table tr{border-bottom:1.5px solid var(--border)}.spec-table tr:last-child{border-bottom:none}
+.spec-table td{padding:10px 0;vertical-align:top;font-size:14px}
+.spec-table td:first-child{font-weight:700;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;width:175px;padding-right:18px;padding-top:13px}
+.spec-highlight{font-weight:800;color:var(--blue);font-size:15px}
+.diagram-wrap{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:22px;margin:18px 0}
+.diagram-caption{text-align:center;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:10px}
+.screenshot-caption{text-align:center;font-size:11px;color:var(--muted);font-weight:600;margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.iter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.iter-card{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:14px 16px}
+.iter-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.iter-card h3{font-size:13px;margin:0 0 4px;margin-top:0}
+.iter-card p{font-size:12px;color:var(--muted);margin:0}
+.iter-ok .iter-label{color:var(--green)}.iter-warn .iter-label{color:var(--orange)}.iter-bad .iter-label{color:#dc2626}
+.phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.phase-card{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:18px 20px}
+.phase-num-badge{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;margin-bottom:9px;color:var(--white)}
+.p1 .phase-num-badge{background:var(--blue)}.p2 .phase-num-badge{background:var(--orange)}.p3 .phase-num-badge{background:var(--purple)}.p4 .phase-num-badge{background:var(--green)}
+.phase-card h3{font-size:13px;margin-bottom:4px;margin-top:0}.phase-card p{font-size:12.5px;color:var(--muted);margin:0}
+.formula-row{background:#1e293b;border-radius:10px;padding:16px 20px;margin:12px 0;font-family:var(--mono)}
+.formula-line{font-size:12.5px;color:#94d2bd;margin-bottom:4px}.formula-line:last-child{margin:0}
+.formula-comment{color:#64748b;font-size:11px}
+.scale-table{width:100%;border-collapse:collapse;overflow:hidden;margin-top:12px}
+.scale-table th{background:var(--ink);color:var(--white);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:8px 12px;text-align:left}
+.scale-table td{padding:9px 12px;font-size:12.5px;border-bottom:1.5px solid var(--border);font-family:var(--mono)}
+.scale-table tr:last-child td{border-bottom:none}
+.scale-table .best td{background:#eff6ff;font-weight:700}.scale-table .best td:first-child{border-left:4px solid var(--blue)}
+.ok{color:var(--green);font-weight:700}.warn{color:#dc2626}.sweet{color:var(--blue);font-weight:800}
+.file-tree{background:#1e293b;border-radius:10px;padding:16px 20px;font-family:var(--mono);font-size:12px;line-height:2}
+.ft-dir{color:#93c5fd}.ft-final{color:#fde68a;font-weight:500}.ft-note{color:#475569;font-size:11px}.ft-indent{padding-left:18px;display:block}
+.ref-list{list-style:none}
+.ref-list li{padding:10px 0;border-bottom:1.5px solid var(--border);font-size:14px;display:flex;gap:10px}
+.ref-list li:last-child{border-bottom:none}
+.ref-arrow{color:var(--blue);font-weight:800;flex-shrink:0}
+a{color:var(--blue);text-decoration:none;font-weight:600}
+.ref-sub{color:var(--muted);font-size:12px;display:block;margin-top:2px;font-weight:400}
+.footer{background:var(--ink);color:#94a3b8;padding:24px 56px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600}
+.footer-right{font-family:var(--mono);font-size:11px;color:#475569}
+.breadcrumb{background:var(--bg);padding:14px 56px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border)}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb span{margin:0 6px;color:var(--border)}
+</style></head>
+<body>
+<div class="breadcrumb"><a href="#">vibration-isolation-damper</a> <span>›</span> 02_isolation_pad</div>
+
+<div class="hero">
+  <div class="tag-row"><span class="tag tag-orange">Phase 1</span><span class="tag tag-yellow">First Iteration</span></div>
+  <h1>02 — <em>Isolation Pad</em></h1>
+  <p class="hero-sub">The first attempt. Simple pads that evolved into proper spring mechanisms — before we realised the spring needed to be structural, not decorative.</p>
+</div>
+
+<div class="section">
+  <div class="section-label"><div class="section-icon icon-yellow">📝</div><h2>The idea</h2></div>
+  <p>Start simple: flat pads with small nub feet to create a standoff between speaker and shelf. Minimal contact area = less vibration transmission. Then add a spring inside to get real compliance.</p>
+  <img src="data:image/png;base64,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" style="width:100%;border-radius:12px;border:2px solid #e5e2dc;display:block;margin:14px 0;"><div class="screenshot-caption">Early pad iteration — tapered pedestal form in TinkerCAD</div>
+</div>
+
+<div class="section">
+  <div class="section-label"><div class="section-icon icon-blue">🔁</div><h2>Iterations</h2></div>
+  <h3>v1 — Nub pad</h3>
+  <p>Flat rectangular pad (122×132.5mm). Four tapered nubs on the underside create a standoff. No spring mechanism — pure decoupling through minimal contact area.</p>
+  <div class="callout callout-orange"><div class="callout-icon">⚠️</div><div class="callout-text"><strong>Problem:</strong> Nubs reduce contact area but don't provide compliance. The speaker still transmits vibration directly through the rigid pad body.</div></div>
+
+  <h3>v2 — Compliant isolator v1</h3>
+  <p>Added an orthoplanar spring mechanism inside the pad. Three curved arms connecting a centre hub to an outer ring.</p>
+  <div class="callout callout-orange"><div class="callout-icon">⚠️</div><div class="callout-text"><strong>Problem:</strong> The arm geometry was disconnected — inner plate floated with no structural connection to the outer ring.</div></div>
+
+  <h3>v3 — Compliant isolator v2</h3>
+  <p>Fixed the arm connections. Hub properly bridges to outer ring. This version works mechanically but the flat disc form factor doesn't provide enough vertical clearance for spring travel.</p>
+  <div class="callout callout-green"><div class="callout-icon">✅</div><div class="callout-text"><strong>Key learning:</strong> A flat pad is too low-profile. The spring needs height — the deflection path requires vertical clearance below the speaker. This realisation drove the two-piece stand concept.</div></div>
+</div>
+
+<div class="section">
+  <div class="section-label"><div class="section-icon icon-purple">📦</div><h2>Files in this folder</h2></div>
+  <div class="file-tree">
+    <span><span class="ft-dir">isolation_pad_v1.stl</span><span class="ft-note">   nub pad — no spring</span></span>
+    <span><span class="ft-dir">isolation_pad_v1.scad</span><span class="ft-note">  OpenSCAD source</span></span>
+    <span><span class="ft-dir">compliant_isolator_v2.stl</span><span class="ft-note">  fixed spring geometry</span></span>
+  </div>
+</div>
+
+<div class="footer">
+  <div>Vibration Isolation Damper for Bookshelf Speakers · @danaibavishi</div>
+  <div class="footer-right">github.com/danaibavishi/vibration-isolation-damper</div>
+</div>
+</body></html>
